@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj = {}
+      let name = 'tanqy'
+      Object.defineProperty(obj, 'property1', {
+        // 对象是否可以被删除,以及其他属性是否可以被修改(后续defineProperty)
+        configurable: true,
+        // 是否可以在for...in 循环和 Object.keys()中被枚举
+        enumerable: true,
+        /* 数据描述符 */
+        // value: 42,
+        // writable: true,
+        /* 存取描述符 */
+        get() {
+          console.log('get描述符')
+          return name
+        },
+        set(newValue) {
+          console.log('set描述符')
+          name = newValue
+        },
+      })
+    </script>
+  </body>
+</html>
